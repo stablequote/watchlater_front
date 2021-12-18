@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Profile() {
+function FavouriteLinks() {
     return (
         <div>
-            <h1>Pofile page</h1>
+            
         </div>
     )
 }
 
-export default Profile
+export default FavouriteLinks

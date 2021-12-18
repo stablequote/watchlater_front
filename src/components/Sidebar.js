@@ -1,18 +1,10 @@
-// import React from 'react';
-
-// function Sidebar() {
-//     return (
-//         <div>
-            
-//         </div>
-//     )
-// }
-
-// export default Sidebar
-
-
-
 import React from 'react';
+// import { BrowserRouter as Router, Switch, Link, Route } from 'react-router-dom';
+import { Routes, Route, Link } from "react-router-dom";
+import AddLink from './AddLink';
+import ShowLinks from './ShowLinks';
+import FavouriteLinks from './FavouriteLinks';
+
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -30,7 +22,12 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
+import VideoLibraryIcon from '@material-ui/icons/VideoLibrary';
 import MailIcon from '@material-ui/icons/Mail';
+import ListLinks from './ListLinks';
+
+// import { Drawer,CssBaseline, AppBar, Toolbar, List, Typography, Divider, IconButton, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
+// import { MenuIcon, ChevronLeftIcon, ChevronRightIcon, InboxIcon, MailIcon } from '@material-ui/icons'
 
 const drawerWidth = 240;
 
@@ -142,13 +139,36 @@ const useStyles = makeStyles((theme) => ({
         </div>
         <Divider />
         <List>
-          {['Saved', 'Watch', 'Live', 'Later'].map((text, index) => (
+          {/* {['Saved', 'Watch', 'Live', 'Later'].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
-          ))}
+          ))} */}
         </List>
+        <List>
+          <ListItem button>
+            <ListItemIcon>
+              <VideoLibraryIcon />
+            </ListItemIcon>
+            <ListItemText>
+              <Typography>
+                All Videos
+              </Typography>
+              <Routes>
+                <Route path="/videos" element={<ShowLinks />} />
+              </Routes>
+            </ListItemText>
+          </ListItem>
+        </List>
+        {/* <List>
+          <Routes>
+            <Route path="links" element={<ListLinks />} />
+            <Route path="add" element={<AddLink />} />
+            <Route path="playlist" element={<ShowLinks />} />
+            <Route path="favourite" element={<FavouriteLinks />} />
+          </Routes>
+        </List> */}
         <Divider />
       </Drawer>
       <main

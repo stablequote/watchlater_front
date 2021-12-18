@@ -1,14 +1,22 @@
-import {makeStyles, Container, Paper, Typography } from '@material-ui/core';
+import { makeStyles, Container, Paper, Typography } from '@material-ui/core';
 
-import CreateUser from './CreateUser';
-import ListUsers from './ListUsers';
+import AddLink from './AddLink';
+import ListLinks from './ListLinks';
+import CustomSidebar from './CustomSidebar';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     '& > *': {
       margin: theme.spacing(1),
     },
-    
+    centerText: {
+      textAlign: "center",
+      color: "red"
+    },
+    container: {
+      display: "flex",
+      justifyContent: "center"
+    }
 
   },
 }));
@@ -18,11 +26,12 @@ function Main() {
 
   return (
     <div>
-      <Container fixed>
+      <Container fixed className={classes.container}>
         <Paper>
-          <Typography variant="h5">Testing Main Area</Typography>
-          <CreateUser />
-          <ListUsers />
+          <Typography variant="h5" className={classes.centerText}>Add Link</Typography>
+          <AddLink />
+          <ListLinks />
+          <CustomSidebar />
         </Paper>
       </Container>
     </div>
