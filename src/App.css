@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+.container{
+  width: 600px;
+  min-height: 240px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  background: #70e1f5; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #70e1f5, #d2dadb); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #70e1f5, #d2dadb);
+  transform: translateX(-280px);
+  margin-top: 120px;
+}

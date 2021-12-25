@@ -1,18 +1,11 @@
-// import React from 'react';
-
-// function Sidebar() {
-//     return (
-//         <div>
-            
-//         </div>
-//     )
-// }
-
-// export default Sidebar
-
-
-
 import React from 'react';
+// import { BrowserRouter as Router, Switch, Link, Route } from 'react-router-dom';
+import { Route, Switch, Link} from "react-router-dom";
+
+import AddLink from './AddLink';
+import ShowLinks from './ShowLinks';
+import ListLinks from './ListLinks';
+
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -30,7 +23,11 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
+import VideoLibraryIcon from '@material-ui/icons/VideoLibrary';
 import MailIcon from '@material-ui/icons/Mail';
+
+// import { Drawer,CssBaseline, AppBar, Toolbar, List, Typography, Divider, IconButton, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
+// import { MenuIcon, ChevronLeftIcon, ChevronRightIcon, InboxIcon, MailIcon } from '@material-ui/icons'
 
 const drawerWidth = 240;
 
@@ -142,12 +139,44 @@ const useStyles = makeStyles((theme) => ({
         </div>
         <Divider />
         <List>
-          {['Saved', 'Watch', 'Live', 'Later'].map((text, index) => (
+          {/* {['Saved', 'Watch', 'Live', 'Later'].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
-          ))}
+          ))} */}
+        </List>
+        <List>
+          <ListItem button component={Link} to="/addlink">
+            <ListItemIcon>
+              <VideoLibraryIcon />
+            </ListItemIcon>
+            <ListItemText>
+              <Typography>
+                Add Video
+              </Typography>
+            </ListItemText>
+          </ListItem>
+          <ListItem button component={Link} to="/showlinks">
+            <ListItemIcon>
+              <VideoLibraryIcon />
+            </ListItemIcon>
+            <ListItemText>
+              <Typography>
+                Show Links
+              </Typography>
+            </ListItemText>
+          </ListItem>
+          <ListItem button component={Link} to="/listlinks">
+            <ListItemIcon>
+              <VideoLibraryIcon />
+            </ListItemIcon>
+            <ListItemText>
+              <Typography>
+                List Links
+              </Typography>
+            </ListItemText>
+          </ListItem>
         </List>
         <Divider />
       </Drawer>
@@ -160,6 +189,11 @@ const useStyles = makeStyles((theme) => ({
   
     
       </main>
+      <Switch>
+        <Route exact path="/addlink" component={AddLink} />
+        <Route exact path="/showlinks" component={ShowLinks} />
+        <Route exact path="/listlinks" component={ListLinks} />
+      </Switch>
     </div>
   );
 }

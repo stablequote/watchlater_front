@@ -1,8 +1,7 @@
 import Main from './components/Main'
-// import FetchingData from './components/FetchingData'
-
 import Sidebar from './components/Sidebar';
 import Navbar from './components/Navbar';
+import './App.css';
 
 function App() {
   return (
